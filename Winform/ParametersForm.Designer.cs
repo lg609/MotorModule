@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParametersForm));
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("分类0（系统信息）");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("分类1（系统状态）");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("分类2（电机相关）");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("分类3（控制目标值）");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("分类4（控制限制值）");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("分类5（三闭环参数S）");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("分类6（三闭环参数M）");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("分类7（三闭环参数L）");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("节点8（刹车相关）");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("节点9（示波器相关）");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("分类0（系统信息）");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("分类1（系统状态）");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("分类2（电机相关）");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("分类3（控制目标值）");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("分类4（控制限制值）");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("分类5（三闭环参数S）");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("分类6（三闭环参数M）");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("分类7（三闭环参数L）");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("节点8（刹车相关）");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("节点9（示波器相关）");
             this.pLName = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pBExit = new System.Windows.Forms.PictureBox();
@@ -134,59 +134,59 @@
             this.tVParam.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tVParam.Location = new System.Drawing.Point(0, 90);
             this.tVParam.Name = "tVParam";
-            treeNode21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode21.Checked = true;
-            treeNode21.ForeColor = System.Drawing.Color.Black;
-            treeNode21.Name = "节点0";
-            treeNode21.Tag = "tt";
-            treeNode21.Text = "分类0（系统信息）";
-            treeNode22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode22.ForeColor = System.Drawing.Color.Black;
-            treeNode22.Name = "节点1";
-            treeNode22.Text = "分类1（系统状态）";
-            treeNode23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode23.ForeColor = System.Drawing.Color.Black;
-            treeNode23.Name = "节点2";
-            treeNode23.Text = "分类2（电机相关）";
-            treeNode24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode24.ForeColor = System.Drawing.Color.Black;
-            treeNode24.Name = "节点3";
-            treeNode24.Text = "分类3（控制目标值）";
-            treeNode25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode25.ForeColor = System.Drawing.Color.Black;
-            treeNode25.Name = "节点4";
-            treeNode25.Text = "分类4（控制限制值）";
-            treeNode26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode26.ForeColor = System.Drawing.Color.Black;
-            treeNode26.Name = "节点5";
-            treeNode26.Text = "分类5（三闭环参数S）";
-            treeNode27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode27.ForeColor = System.Drawing.Color.Black;
-            treeNode27.Name = "节点6";
-            treeNode27.Text = "分类6（三闭环参数M）";
-            treeNode28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode28.ForeColor = System.Drawing.Color.Black;
-            treeNode28.Name = "节点0";
-            treeNode28.Text = "分类7（三闭环参数L）";
-            treeNode29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode29.ForeColor = System.Drawing.Color.Black;
-            treeNode29.Name = "节点8";
-            treeNode29.Text = "节点8（刹车相关）";
-            treeNode30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            treeNode30.ForeColor = System.Drawing.Color.Black;
-            treeNode30.Name = "节点9";
-            treeNode30.Text = "节点9（示波器相关）";
+            treeNode11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode11.Checked = true;
+            treeNode11.ForeColor = System.Drawing.Color.Black;
+            treeNode11.Name = "节点0";
+            treeNode11.Tag = "tt";
+            treeNode11.Text = "分类0（系统信息）";
+            treeNode12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode12.ForeColor = System.Drawing.Color.Black;
+            treeNode12.Name = "节点1";
+            treeNode12.Text = "分类1（系统状态）";
+            treeNode13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode13.ForeColor = System.Drawing.Color.Black;
+            treeNode13.Name = "节点2";
+            treeNode13.Text = "分类2（电机相关）";
+            treeNode14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode14.ForeColor = System.Drawing.Color.Black;
+            treeNode14.Name = "节点3";
+            treeNode14.Text = "分类3（控制目标值）";
+            treeNode15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode15.ForeColor = System.Drawing.Color.Black;
+            treeNode15.Name = "节点4";
+            treeNode15.Text = "分类4（控制限制值）";
+            treeNode16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode16.ForeColor = System.Drawing.Color.Black;
+            treeNode16.Name = "节点5";
+            treeNode16.Text = "分类5（三闭环参数S）";
+            treeNode17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode17.ForeColor = System.Drawing.Color.Black;
+            treeNode17.Name = "节点6";
+            treeNode17.Text = "分类6（三闭环参数M）";
+            treeNode18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode18.ForeColor = System.Drawing.Color.Black;
+            treeNode18.Name = "节点0";
+            treeNode18.Text = "分类7（三闭环参数L）";
+            treeNode19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode19.ForeColor = System.Drawing.Color.Black;
+            treeNode19.Name = "节点8";
+            treeNode19.Text = "节点8（刹车相关）";
+            treeNode20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            treeNode20.ForeColor = System.Drawing.Color.Black;
+            treeNode20.Name = "节点9";
+            treeNode20.Text = "节点9（示波器相关）";
             this.tVParam.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24,
-            treeNode25,
-            treeNode26,
-            treeNode27,
-            treeNode28,
-            treeNode29,
-            treeNode30});
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20});
             this.tVParam.Size = new System.Drawing.Size(200, 516);
             this.tVParam.TabIndex = 1;
             this.tVParam.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tVParam_AfterSelect);
