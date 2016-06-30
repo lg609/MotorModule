@@ -765,8 +765,9 @@ namespace ICDIBasic
                     tMCheck.Enabled = false;
                     MessageBox.Show("模块" + cBID.Text + "已断开连接！");
                 }
-            }        
-
+            }
+            pc.ReadOneWord(Configuration.SYS_POSITION_H, PCan.currentID);
+            tBMultiTurn.Text = Configuration.MemoryControlTable[Configuration.SYS_POSITION_H].ToString();
         }
 
         #endregion
@@ -782,7 +783,7 @@ namespace ICDIBasic
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            TestRun tr = TestRun.GetInstance();
+            tr = TestRun.GetInstance();
             tr.MdiParent = this;
             tr.Parent = pLMain;
             tr.Location = new Point(410, 0);

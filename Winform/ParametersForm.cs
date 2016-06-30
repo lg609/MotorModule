@@ -16,6 +16,7 @@ namespace ICDIBasic
         PCan pc;
         WriteParameters wp;
         int selectedItemIndex = -1;
+        int tVIndex = -1;
         public static Dictionary<byte, ParameterStruct> paraRelection = new Dictionary<byte, ParameterStruct>();
 
 
@@ -114,6 +115,10 @@ namespace ICDIBasic
             paraRelection.Add(0x59, new ParameterStruct("S_POSITION_I", "0-100", "-", "R/W", "S位置环I参数"));
             paraRelection.Add(0x5a, new ParameterStruct("S_POSITION_D", "0-100", "-", "R/W", "S位置环D参数"));
             paraRelection.Add(0x5b, new ParameterStruct("S_POSITION_DS", "0-100", "-", "R/W", "S位置P死区"));
+            paraRelection.Add(0x5c, new ParameterStruct("S_CURRENT_FD", "0-100", "-", "R/W", "前馈参数1"));
+            paraRelection.Add(0x5d, new ParameterStruct("M_CURRENT_FD", "0-100", "-", "R/W", "前馈参数2"));
+            paraRelection.Add(0x5e, new ParameterStruct("L_CURRENT_FD", "0-100", "-", "R/W", "前馈参数3"));
+
 
             paraRelection.Add(0x61, new ParameterStruct("M_CURRENT_P", "0-100", "-", "R/W", "M电流环P参数"));
             paraRelection.Add(0x62, new ParameterStruct("M_CURRENT_I", "0-100", "-", "R/W", "M电流环I参数"));
@@ -197,11 +202,11 @@ namespace ICDIBasic
 
         private void tVParam_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            int index = e.Node.Index;
+            tVIndex = e.Node.Index;
 
             for (int i = 0; i < tVParam.Nodes.Count; i++)
             {
-                if (i == index)
+                if (i == tVIndex)
                 {
                     tVParam.Nodes[i].ForeColor = Color.BlueViolet;
                 }
@@ -210,8 +215,11 @@ namespace ICDIBasic
                     tVParam.Nodes[i].ForeColor = Color.Black;
                 }
             }
+            byte index = Convert.ToByte(Convert.ToByte(tVParam.Nodes[tVIndex].Text.Substring(2, 1)) << 4);
+            pc.ReadWords(index, 16, PCan.currentID);
+            Thread.Sleep(150);
 
-            RefreshlVParam(index);
+            RefreshlVParam(tVIndex);
         }
 
 
@@ -472,6 +480,11 @@ namespace ICDIBasic
         {
             cBParametersSource.Text = "";
             cBParametersSource.Text = "从驱动器读取";
+            //刷新当前页面
+            byte index = Convert.ToByte(Convert.ToByte(tVParam.Nodes[tVIndex].Text.Substring(2, 1)) << 4);
+            pc.ReadWords(index, 16, PCan.currentID);
+            Thread.Sleep(150);
+            RefreshlVParam(tVIndex);
         }
 
         private void pLName_Click(object sender, EventArgs e)
