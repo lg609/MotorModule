@@ -15,6 +15,10 @@ namespace ICDIBasic
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(MainForm.GetInstance());
+
+
+
+
         }
     }
 }

@@ -349,44 +349,44 @@ namespace ICDIBasic
         /// with the current connection status
         /// </summary>
         /// <param name="bConnected">Current status. True if connected, false otherwise</param>
-        private void SetConnectionStatus(bool bConnected)
-        {
-            // Buttons
-            //
-            btnInit.Enabled = !bConnected;
-            btnRead.Enabled = bConnected && rdbManual.Checked;
-            btnWrite.Enabled = bConnected;
-            btnRelease.Enabled = bConnected;
-            btnFilterApply.Enabled = bConnected;
-            btnFilterQuery.Enabled = bConnected;
-            btnGetVersions.Enabled = bConnected;
-            btnHwRefresh.Enabled = !bConnected;
-            btnStatus.Enabled = bConnected;
-            btnReset.Enabled = bConnected;
+        //private void SetConnectionStatus(bool bConnected)
+        //{
+        //    // Buttons
+        //    //
+        //    btnInit.Enabled = !bConnected;
+        //    //btnRead.Enabled = bConnected && rdbManual.Checked;
+        //    //btnWrite.Enabled = bConnected;
+        //    btnRelease.Enabled = bConnected;
+        //    btnFilterApply.Enabled = bConnected;
+        //    btnFilterQuery.Enabled = bConnected;
+        //    btnGetVersions.Enabled = bConnected;
+        //    btnHwRefresh.Enabled = !bConnected;
+        //    btnStatus.Enabled = bConnected;
+        //    btnReset.Enabled = bConnected;
 
-            // ComboBoxs
-            //
-            cbbChannel.Enabled = !bConnected;
-            cbbBaudrates.Enabled = !bConnected;
-            cbbHwType.Enabled = !bConnected;
-            cbbIO.Enabled = !bConnected;
-            cbbInterrupt.Enabled = !bConnected;
+        //    // ComboBoxs
+        //    //
+        //    cbbChannel.Enabled = !bConnected;
+        //    cbbBaudrates.Enabled = !bConnected;
+        //    cbbHwType.Enabled = !bConnected;
+        //    cbbIO.Enabled = !bConnected;
+        //    cbbInterrupt.Enabled = !bConnected;
 
-            // Check-Buttons
-            //
-            chbCanFD.Enabled = !bConnected;
+        //    // Check-Buttons
+        //    //
+        //    chbCanFD.Enabled = !bConnected;
 
-            // Hardware configuration and read mode
-            //
-            if (!bConnected)
-                cbbChannel_SelectedIndexChanged(this, new EventArgs());
-            else
-                rdbTimer_CheckedChanged(this, new EventArgs());
+        //    // Hardware configuration and read mode
+        //    //
+        //    if (!bConnected)
+        //        cbbChannel_SelectedIndexChanged(this, new EventArgs());
+        //    else
+        //        rdbTimer_CheckedChanged(this, new EventArgs());
 
-            // Display messages in grid
-            //
+        //    // Display messages in grid
+        //    //
            
-        }
+        //}
 
         /// <summary>
         /// Gets the formated text for a PCAN-Basic channel handle
@@ -592,8 +592,6 @@ namespace ICDIBasic
                 pc.ReadWords(Configuration.SCP_MEAPOS_H, 1, PCan.currentID);
                 Thread.Sleep(1);
             }
-            //
-            //
         }
 
         void UnInitialModule()
@@ -603,49 +601,49 @@ namespace ICDIBasic
         #endregion
 
 
-        #region Message List-View event-handler
-        private void lstMessages_DoubleClick(object sender, EventArgs e)
-        {
-            // Clears the content of the Message List-View
-            //
-            btnMsgClear_Click(this, new EventArgs());
-        }
-        #endregion
+        //#region Message List-View event-handler
+        //private void lstMessages_DoubleClick(object sender, EventArgs e)
+        //{
+        //    // Clears the content of the Message List-View
+        //    //
+        //    btnMsgClear_Click(this, new EventArgs());
+        //}
+        //#endregion
 
-        #region Information List-Box event-handler
-        private void lbxInfo_DoubleClick(object sender, EventArgs e)
-        {
-            // Clears the content of the Information List-Box
-            //
-            btnInfoClear_Click(this, new EventArgs());
-        }
-        #endregion
+        //#region Information List-Box event-handler
+        //private void lbxInfo_DoubleClick(object sender, EventArgs e)
+        //{
+        //    // Clears the content of the Information List-Box
+        //    //
+        //    btnInfoClear_Click(this, new EventArgs());
+        //}
+        //#endregion
 
         #region Textbox event handlers
-        private void txtID_Leave(object sender, EventArgs e)
-        {
-            int iTextLength;
-            uint uiMaxValue;
+        //private void txtID_Leave(object sender, EventArgs e)
+        //{
+        //    int iTextLength;
+        //    uint uiMaxValue;
 
-            // Calculates the text length and Maximum ID value according
-            // with the Message Type
-            //
-            iTextLength = (chbExtended.Checked) ? 8 : 3;
-            uiMaxValue = (chbExtended.Checked) ? (uint)0x1FFFFFFF : (uint)0x7FF;
+        //    // Calculates the text length and Maximum ID value according
+        //    // with the Message Type
+        //    //
+        //    iTextLength = (chbExtended.Checked) ? 8 : 3;
+        //    uiMaxValue = (chbExtended.Checked) ? (uint)0x1FFFFFFF : (uint)0x7FF;
 
-            // The Textbox for the ID is represented with 3 characters for 
-            // Standard and 8 characters for extended messages.
-            // Therefore if the Length of the text is smaller than TextLength,  
-            // we add "0"
-            //
-            while (txtID.Text.Length != iTextLength)
-                txtID.Text = ("0" + txtID.Text);
+        //    // The Textbox for the ID is represented with 3 characters for 
+        //    // Standard and 8 characters for extended messages.
+        //    // Therefore if the Length of the text is smaller than TextLength,  
+        //    // we add "0"
+        //    //
+        //    while (txtID.Text.Length != iTextLength)
+        //        txtID.Text = ("0" + txtID.Text);
 
-            // We check that the ID is not bigger than current maximum value
-            //
-            if (Convert.ToUInt32(txtID.Text, 16) > uiMaxValue)
-                txtID.Text = string.Format("{0:X" + iTextLength.ToString() + "}", uiMaxValue);
-        }
+        //    // We check that the ID is not bigger than current maximum value
+        //    //
+        //    if (Convert.ToUInt32(txtID.Text, 16) > uiMaxValue)
+        //        txtID.Text = string.Format("{0:X" + iTextLength.ToString() + "}", uiMaxValue);
+        //}
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -705,171 +703,93 @@ namespace ICDIBasic
             //}
         }
 
-        private void chbExtended_CheckedChanged(object sender, EventArgs e)
-        {
-            uint uiTemp;
+        //private void chbExtended_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    uint uiTemp;
 
-            txtID.MaxLength = (chbExtended.Checked) ? 8 : 3;
+        //    txtID.MaxLength = (chbExtended.Checked) ? 8 : 3;
 
-            // the only way that the text length can be bigger als MaxLength
-            // is when the change is from Extended to Standard message Type.
-            // We have to handle this and set an ID not bigger than the Maximum
-            // ID value for a Standard Message (0x7FF)
-            //
-            if (txtID.Text.Length > txtID.MaxLength)
-            {
-                uiTemp = Convert.ToUInt32(txtID.Text, 16);
-                txtID.Text = (uiTemp < 0x7FF) ? string.Format("{0:X3}", uiTemp) : "7FF";
-            }
+        //    // the only way that the text length can be bigger als MaxLength
+        //    // is when the change is from Extended to Standard message Type.
+        //    // We have to handle this and set an ID not bigger than the Maximum
+        //    // ID value for a Standard Message (0x7FF)
+        //    //
+        //    if (txtID.Text.Length > txtID.MaxLength)
+        //    {
+        //        uiTemp = Convert.ToUInt32(txtID.Text, 16);
+        //        txtID.Text = (uiTemp < 0x7FF) ? string.Format("{0:X3}", uiTemp) : "7FF";
+        //    }
 
-            txtID_Leave(this, new EventArgs());
-        }
+        //    txtID_Leave(this, new EventArgs());
+        //}
 
-        private void chbRemote_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBox txtbCurrentTextBox;
+        //private void chbFilterExt_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    int iMaxValue;
 
-            txtbCurrentTextBox = txtData0;
+        //    iMaxValue = (chbFilterExt.Checked) ? 0x1FFFFFFF : 0x7FF;
 
-            chbFD.Enabled = !chbRemote.Checked;
+        //    // We check that the maximum value for a selected filter 
+        //    // mode is used
+        //    //
+        //    if (nudIdTo.Value > iMaxValue)
+        //        nudIdTo.Value = iMaxValue;
+        //    nudIdTo.Maximum = iMaxValue;
 
-            // If the message is a RTR, no data is sent. The textboxes for data 
-            // will be disabled
-            // 
-            for (int i = 0; i <= nudLength.Value; i++)
-            {
-                txtbCurrentTextBox.Enabled = !chbRemote.Checked;
-                if (i < nudLength.Value)
-                    txtbCurrentTextBox = (TextBox)this.Controls.Find("txtData" + i.ToString(), true)[0];
-            }
-        }
+        //    if (nudIdFrom.Value > iMaxValue)
+        //        nudIdFrom.Value = iMaxValue;
+        //    nudIdFrom.Maximum = iMaxValue;
+        //}
 
-        private void chbFilterExt_CheckedChanged(object sender, EventArgs e)
-        {
-            int iMaxValue;
+        //private void rdbTimer_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (!btnRelease.Enabled)
+        //        return;
 
-            iMaxValue = (chbFilterExt.Checked) ? 0x1FFFFFFF : 0x7FF;
+        //    // According with the kind of reading, a timer, a thread or a button will be enabled
+        //    //
+        //    if (rdbTimer.Checked)
+        //    {
+        //        // Abort Read Thread if it exists
+        //        //
+        //        //if (m_ProcessThread != null)
+        //        //{
+        //        //    m_ProcessThread.Abort();
+        //        //    m_ProcessThread.Join();
+        //        //    m_ProcessThread = null;
+        //        //}
 
-            // We check that the maximum value for a selected filter 
-            // mode is used
-            //
-            if (nudIdTo.Value > iMaxValue)
-                nudIdTo.Value = iMaxValue;
-            nudIdTo.Maximum = iMaxValue;
-
-            if (nudIdFrom.Value > iMaxValue)
-                nudIdFrom.Value = iMaxValue;
-            nudIdFrom.Maximum = iMaxValue;
-        }
-
-        private void chbFD_CheckedChanged(object sender, EventArgs e)
-        {
-            chbRemote.Enabled = !chbFD.Checked;
-            chbBRS.Enabled = chbFD.Checked;
-            if (!chbBRS.Enabled)
-                chbBRS.Checked = false;
-            nudLength.Maximum = chbFD.Checked ? 15 : 8;
-        }
-
-        private void rdbTimer_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!btnRelease.Enabled)
-                return;
-
-            // According with the kind of reading, a timer, a thread or a button will be enabled
-            //
-            if (rdbTimer.Checked)
-            {
-                // Abort Read Thread if it exists
-                //
-                //if (m_ProcessThread != null)
-                //{
-                //    m_ProcessThread.Abort();
-                //    m_ProcessThread.Join();
-                //    m_ProcessThread = null;
-                //}
-
-                // Enable Timer
-                //
-                //tMMainFormRefresh.Enabled = btnRelease.Enabled;
-            }
-            if (rdbEvent.Checked)
-            {
-                // Disable Timer
-                //
-                //tMMainFormRefresh.Enabled = false;
-                // Create and start the tread to read CAN Message using SetRcvEvent()
-                //
+        //        // Enable Timer
+        //        //
+        //        //tMMainFormRefresh.Enabled = btnRelease.Enabled;
+        //    }
+        //    if (rdbEvent.Checked)
+        //    {
+        //        // Disable Timer
+        //        //
+        //        //tMMainFormRefresh.Enabled = false;
+        //        // Create and start the tread to read CAN Message using SetRcvEvent()
+        //        //
               
-            }
-            if (rdbManual.Checked)
-            {
-                // Abort Read Thread if it exists
-                //
-                //if (m_ProcessThread != null)
-                //{
-                //    m_ProcessThread.Abort();
-                //    m_ProcessThread.Join();
-                //    m_ProcessThread = null;
-                //}
-                // Disable Timer
-                //
-                //tMMainFormRefresh.Enabled = false;
-            }
-            btnRead.Enabled = btnRelease.Enabled && rdbManual.Checked;
-        }
+        //    }
+        //    if (rdbManual.Checked)
+        //    {
+        //        // Abort Read Thread if it exists
+        //        //
+        //        //if (m_ProcessThread != null)
+        //        //{
+        //        //    m_ProcessThread.Abort();
+        //        //    m_ProcessThread.Join();
+        //        //    m_ProcessThread = null;
+        //        //}
+        //        // Disable Timer
+        //        //
+        //        //tMMainFormRefresh.Enabled = false;
+        //    }
+        //    //btnRead.Enabled = btnRelease.Enabled && rdbManual.Checked;
+        //}
 
-        private void chbCanFD_CheckedChanged(object sender, EventArgs e)
-        {
-            m_IsFD = chbCanFD.Checked;
-
-            cbbBaudrates.Visible = !m_IsFD;
-            cbbHwType.Visible = !m_IsFD;
-            cbbInterrupt.Visible = !m_IsFD;
-            cbbIO.Visible = !m_IsFD;
-            laBaudrate.Visible = !m_IsFD;
-            laHwType.Visible = !m_IsFD;
-            laIOPort.Visible = !m_IsFD;
-            laInterrupt.Visible = !m_IsFD;
-
-            txtBitrate.Visible = m_IsFD;
-            laBitrate.Visible = m_IsFD;
-            chbFD.Visible = m_IsFD;
-            chbBRS.Visible = m_IsFD;
-
-            if ((nudLength.Maximum > 8) && !m_IsFD)
-                chbFD.Checked = false;
-        }
-
-        private void nudLength_ValueChanged(object sender, EventArgs e)
-        {
-            TextBox txtbCurrentTextBox;
-            int iLength;
-
-            txtbCurrentTextBox = txtData0;
-            iLength = GetLengthFromDLC((int)nudLength.Value, !chbFD.Checked);
-            laLength.Text = string.Format("{0} B.", iLength);
-
-            for (int i = 0; i <= 64; i++)
-            {
-                txtbCurrentTextBox.Enabled = i <= iLength;
-                if (i < 64)
-                    txtbCurrentTextBox = (TextBox)this.Controls.Find("txtData" + i.ToString(), true)[0];
-            }
-        }
         #endregion        
-
-
-     
-
-      
-
-   
-       
-
-        
-
-
 
      
         #endregion     
