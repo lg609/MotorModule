@@ -21,24 +21,16 @@ namespace ICDIBasic
     {
      
         #region Delegates
-        /// <summary>
         /// Read-Delegate Handler
-        /// </summary>
         private delegate void ReadDelegateHandler();
         public delegate void changeID();
         public delegate void MessageHandler(MessageEventArgs e);
         #endregion
 
         #region Members
-        
-        /// <summary>
-        /// Saves the desired connection mode
-        /// </summary>
-        private bool m_IsFD;
-        /// <summary>
-        /// Saves the handle of a PCAN hardware
-        /// </summary>
-        public static TPCANHandle m_PcanHandle;
+
+        private bool m_IsFD;                                 // Saves the desired connection mode
+        public static TPCANHandle m_PcanHandle;             // Saves the handle of a PCAN hardware
         /// <summary>
         /// Saves the baudrate register for a conenction
         /// </summary>
@@ -76,6 +68,8 @@ namespace ICDIBasic
         ParametersForm pf;
 
         OscilloScope os;
+
+        TestRun tr;
         #endregion
 
         #region Methods
@@ -512,6 +506,12 @@ namespace ICDIBasic
         /// </summary>
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // 结束运动
+            if (tr != null)
+            {
+                tr.clearValue();
+            }
+
             tMMainFormRefresh.Stop();
             // Releases the used PCAN-Basic channel
             //
@@ -619,7 +619,7 @@ namespace ICDIBasic
         //}
         //#endregion
 
-        #region Textbox event handlers
+        //#region Textbox event handlers
         //private void txtID_Leave(object sender, EventArgs e)
         //{
         //    int iTextLength;
@@ -645,48 +645,48 @@ namespace ICDIBasic
         //        txtID.Text = string.Format("{0:X" + iTextLength.ToString() + "}", uiMaxValue);
         //}
 
-        private void txtID_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char chCheck;
+        //private void txtID_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    char chCheck;
 
-            // We convert the Character to its Upper case equivalent
-            //
-            chCheck = char.ToUpper(e.KeyChar);
+        //    // We convert the Character to its Upper case equivalent
+        //    //
+        //    chCheck = char.ToUpper(e.KeyChar);
 
-            // The Key is the Delete (Backspace) Key
-            //
-            if (chCheck == 8)
-                return;
-            // The Key is a number between 0-9
-            //
-            if ((chCheck > 47) && (chCheck < 58))
-                return;
-            // The Key is a character between A-F
-            //
-            if ((chCheck > 64) && (chCheck < 71))
-                return;
+        //    // The Key is the Delete (Backspace) Key
+        //    //
+        //    if (chCheck == 8)
+        //        return;
+        //    // The Key is a number between 0-9
+        //    //
+        //    if ((chCheck > 47) && (chCheck < 58))
+        //        return;
+        //    // The Key is a character between A-F
+        //    //
+        //    if ((chCheck > 64) && (chCheck < 71))
+        //        return;
 
-            // Is neither a number nor a character between A(a) and F(f)
-            //
-            e.Handled = true;
-        }
+        //    // Is neither a number nor a character between A(a) and F(f)
+        //    //
+        //    e.Handled = true;
+        //}
 
-        private void txtData0_Leave(object sender, EventArgs e)
-        {
-            TextBox txtbCurrentTextbox;
+        //private void txtData0_Leave(object sender, EventArgs e)
+        //{
+        //    TextBox txtbCurrentTextbox;
 
-            // all the Textbox Data fields are represented with 2 characters.
-            // Therefore if the Length of the text is smaller than 2, we add
-            // a "0"
-            //
-            if (sender.GetType().Name == "TextBox")
-            {
-                txtbCurrentTextbox = (TextBox)sender;
-                while (txtbCurrentTextbox.Text.Length != 2)
-                    txtbCurrentTextbox.Text = ("0" + txtbCurrentTextbox.Text);
-            }
-        }
-        #endregion
+        //    // all the Textbox Data fields are represented with 2 characters.
+        //    // Therefore if the Length of the text is smaller than 2, we add
+        //    // a "0"
+        //    //
+        //    if (sender.GetType().Name == "TextBox")
+        //    {
+        //        txtbCurrentTextbox = (TextBox)sender;
+        //        while (txtbCurrentTextbox.Text.Length != 2)
+        //            txtbCurrentTextbox.Text = ("0" + txtbCurrentTextbox.Text);
+        //    }
+        //}
+        //#endregion
 
         #region Radio- and Check- Buttons event-handlers
         private void chbShowPeriod_CheckedChanged(object sender, EventArgs e)
@@ -770,7 +770,7 @@ namespace ICDIBasic
         //        //tMMainFormRefresh.Enabled = false;
         //        // Create and start the tread to read CAN Message using SetRcvEvent()
         //        //
-              
+
         //    }
         //    if (rdbManual.Checked)
         //    {
@@ -788,14 +788,35 @@ namespace ICDIBasic
         //    }
         //    //btnRead.Enabled = btnRelease.Enabled && rdbManual.Checked;
         //}
+        private void chbCanFD_CheckedChanged(object sender, EventArgs e)
+        {
+            m_IsFD = chbCanFD.Checked;
 
-        #endregion        
+            cbbBaudrates.Visible = !m_IsFD;
+            cbbHwType.Visible = !m_IsFD;
+            cbbInterrupt.Visible = !m_IsFD;
+            cbbIO.Visible = !m_IsFD;
+            //laBaudrate.Visible = !m_IsFD;
+            //laHwType.Visible = !m_IsFD;
+            //laIOPort.Visible = !m_IsFD;
+            //laInterrupt.Visible = !m_IsFD;
 
-     
-        #endregion     
+            txtBitrate.Visible = m_IsFD;
+            //laBitrate.Visible = m_IsFD;
+            //chbFD.Visible = m_IsFD;
+            //chbBRS.Visible = m_IsFD;
 
-   
-        #endregion        
-          
+            //if ((nudLength.Maximum > 8) && !m_IsFD)
+            //    chbFD.Checked = false;
+        }
+
+        #endregion
+
+
+        #endregion
+
+
+        #endregion
+
     }
 }

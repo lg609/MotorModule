@@ -36,12 +36,12 @@
             this.cbbInterrupt = new System.Windows.Forms.ComboBox();
             this.cbbIO = new System.Windows.Forms.ComboBox();
             this.cbbBaudrates = new System.Windows.Forms.ComboBox();
+            this.txtBitrate = new System.Windows.Forms.TextBox();
             this.btnHwRefresh = new System.Windows.Forms.Button();
             this.cbbChannel = new System.Windows.Forms.ComboBox();
             this.btnInit = new System.Windows.Forms.Button();
             this.btnRelease = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtBitrate = new System.Windows.Forms.TextBox();
             this.cbbParameter = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.statusBarPanel3 = new System.Windows.Forms.StatusBarPanel();
             this.statusBarPanel4 = new System.Windows.Forms.StatusBarPanel();
             this.pLContent = new System.Windows.Forms.Panel();
+            this.tBMultiTurn = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.cBID = new System.Windows.Forms.ComboBox();
@@ -85,6 +86,7 @@
             this.groupBox1.Controls.Add(this.cbbInterrupt);
             this.groupBox1.Controls.Add(this.cbbIO);
             this.groupBox1.Controls.Add(this.cbbBaudrates);
+            this.groupBox1.Controls.Add(this.txtBitrate);
             this.groupBox1.Controls.Add(this.btnHwRefresh);
             this.groupBox1.Controls.Add(this.cbbChannel);
             this.groupBox1.Controls.Add(this.btnInit);
@@ -195,6 +197,16 @@
             this.cbbBaudrates.Size = new System.Drawing.Size(116, 20);
             this.cbbBaudrates.TabIndex = 49;
             this.cbbBaudrates.SelectedIndexChanged += new System.EventHandler(this.cbbBaudrates_SelectedIndexChanged);
+            //
+            // txtBitrate
+            // 
+            this.txtBitrate.Location = new System.Drawing.Point(204, 23);
+            this.txtBitrate.Multiline = true;
+            this.txtBitrate.Name = "txtBitrate";
+            this.txtBitrate.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBitrate.Size = new System.Drawing.Size(364, 32);
+            this.txtBitrate.TabIndex = 48;
+            this.txtBitrate.Visible = false;
             // 
             // btnHwRefresh
             // 
@@ -274,7 +286,6 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.txtBitrate);
             this.groupBox2.Controls.Add(this.cbbParameter);
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -282,13 +293,6 @@
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Configuration Parameters ";
-            // 
-            // txtBitrate
-            // 
-            this.txtBitrate.Location = new System.Drawing.Point(0, 0);
-            this.txtBitrate.Name = "txtBitrate";
-            this.txtBitrate.Size = new System.Drawing.Size(100, 21);
-            this.txtBitrate.TabIndex = 0;
             // 
             // cbbParameter
             // 
@@ -433,6 +437,7 @@
             // 
             this.pLContent.BackColor = System.Drawing.Color.Tan;
             this.pLContent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pLContent.Controls.Add(this.tBMultiTurn);
             this.pLContent.Controls.Add(this.panel1);
             this.pLContent.Controls.Add(this.panel2);
             this.pLContent.Controls.Add(this.label2);
@@ -446,6 +451,13 @@
             this.pLContent.Name = "pLContent";
             this.pLContent.Size = new System.Drawing.Size(997, 35);
             this.pLContent.TabIndex = 54;
+            // 
+            // tBMultiTurn
+            // 
+            this.tBMultiTurn.Location = new System.Drawing.Point(644, 5);
+            this.tBMultiTurn.Name = "tBMultiTurn";
+            this.tBMultiTurn.Size = new System.Drawing.Size(81, 21);
+            this.tBMultiTurn.TabIndex = 53;
             // 
             // panel2
             // 
@@ -560,13 +572,12 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "3";
+            this.Text = "OR模块调试";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).EndInit();
@@ -615,6 +626,7 @@
         private System.Windows.Forms.Button btnWave;
         private System.Windows.Forms.Panel pLMain;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox tBMultiTurn;
         private System.Windows.Forms.TextBox txtBitrate;
     }
 }
