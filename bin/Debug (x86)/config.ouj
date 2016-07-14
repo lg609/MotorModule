@@ -1,14 +1,15 @@
 [OscilloScope]
-PIDGroup=2
+PIDGroup=0
 [plRange]
 Current=200
-Speed=400
+Speed=100
 Position=100
 [TestRun]
 Waveform=0
 WaveFrequency=0.5
 WaveAmplitude=1
 WaveBias=1
+ControlMode=1
 [WaveForm1]
 WaveAmplitude=1
 WaveBias=1

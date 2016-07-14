@@ -261,9 +261,6 @@ namespace ICDIBasic
                             //    System.Console.WriteLine(value.ToString());
                             //}
                         }
-                        //if (OscilloScope.showItems[i].Item == Configuration.SYS_POSITION_L)
-                        //{
-                        //}
                     }
                 }
                 
@@ -277,10 +274,12 @@ namespace ICDIBasic
                   
                     FileStream fs1 = new FileStream("D:\\cc.txt", FileMode.Append, FileAccess.Write, FileShare.None);
                     StreamWriter sw1 = new StreamWriter(fs1, Encoding.Default);
-                    sw1.WriteLine(speed.ToString() + " " + OscilloScope.measureCurrent.ToString());
+                    sw1.WriteLine(speed.ToString() + " " + OscilloScope.measureCurrent.ToString() + " " + Configuration.MemoryControlTable[Configuration.SYS_TEMP]);
                     sw1.Flush();
                     sw1.Close();
                     fs1.Close();
+                    pc.ReadOneWord(Configuration.SYS_TEMP, PCan.currentID);
+                    Thread.Sleep(5);
                     this.OnMessageSend(this, new MessageEventArgs("MotionControl", "Measure " + speed + " done!"));
                  
                     tCount++;
